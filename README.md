@@ -1,6 +1,6 @@
 <div align="center">
   <h1 align="center"> MINI JOGOS EM PYTHON </h1>
-  <img align="center" width="1000" src="assets/python-powered.gif"
+  <img align="center" width="1000" src="assets/python-powered.gif">
 </div>
 
 <div> 
