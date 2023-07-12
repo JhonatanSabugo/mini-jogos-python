@@ -1,6 +1,6 @@
-<div>
+<div align="center">
   <h1 align="center"> MINI JOGOS EM PYTHON </h1>
-  <img src="https://github.com/JhonatanSabugo/jogos-em-python/assets/103583058/6ecb4559-efac-43e4-9507-0c9a58521800"
+  <img align="center" width="1000" src="assets/python-powered.gif"
 </div>
 
 <div> 
