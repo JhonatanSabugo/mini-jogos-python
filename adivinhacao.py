@@ -1,16 +1,29 @@
 import random
 
 def jogar():
-    print("\n*********************************")
-    print("Bem vindo ao jogo de adivinhação!")
-    print("*********************************\n")
+    mensagem_boas_vindas()
 
-    numero_secreto = random.randrange(1,101)    #variavel que irá receber um numero "aleatório" que o usuario terá q adivinhar
-
+    numero = numero_secreto()
     rodada= 1   #variavel com o minimo de rodadas
     total_de_tentativas= 0  #variavel que irá armazenar a dificuldade que sera o max de jogadas
     pontos = 500    #pontuação que irá diminuir conforme o numero q o jogador digitar estiver longe do numero_secreto
 
+    total_de_tentativas = selecao_nivel()
+
+    testa_numero(rodada, total_de_tentativas, numero, pontos)
+
+    mensagem_fim_de_jogo()
+
+def mensagem_boas_vindas():
+    print("\n*********************************")
+    print("Bem vindo ao jogo de adivinhação!")
+    print("*********************************\n")   
+
+def numero_secreto():
+    numero_secreto = random.randrange(1,101)    #variavel que irá receber um numero "aleatório" que o usuario terá q adivinhar
+    return numero_secreto
+
+def selecao_nivel():
     print("(1) Fácil (2) Médio (3) Difícil")
     nivel = int(input("\tDefina o nível: "))  #variavel que irá receber o nivel
 
@@ -23,6 +36,9 @@ def jogar():
     else:   #Tratamento se o usuario digitar um numero diferente dos ditos acima
         print("Numero não atribuido a nenhum nivel")
 
+    return total_de_tentativas  
+
+def testa_numero(rodada, total_de_tentativas, numero, pontos):
     for rodada in range(1, total_de_tentativas +1):
         print(f"\nTentativa {rodada} de {total_de_tentativas}")
         chute = int(input("Digite um numero entre 1 e 100: "))
@@ -32,25 +48,62 @@ def jogar():
             print("Você deve digitar um número entre 0 e 100!")
             continue
 
-        correto = chute == numero_secreto
-        maior   = chute > numero_secreto
+        correto = chute == numero
+        maior   = chute > numero
 
         if(correto):
-            print(f"\nParabéns!!! Você acertou! Sua pontuação foi de {pontos} pontos!\n")
+            mensagem_vitoria()
+            print(f"\nSua pontuação foi de {pontos} pontos!\n")
             break
         else:
             if(maior):
                 print("Que pena!!! Seu chute foi maior que o número secreto. Tente novamente!")
                 if(rodada == total_de_tentativas):
-                    print(f"O número secreto era {numero_secreto}. Sua pontuação foi de {pontos} pontos!")
+                    mensagem_derrota()
+                    print(f"\n Sua pontuação foi de {pontos} pontos!")
             else:
                 print("Que pena!!! Seu chute foi menor que o número secreto. Tente novamente!")
                 if(rodada == total_de_tentativas):
-                    print(f"O número secreto era {numero_secreto}. Sua pontuação foi de {pontos} pontos!")
+                    mensagem_derrota()
+                    print(f"\n Sua pontuação foi de {pontos} pontos!")
 
-            pontos_perdidos = abs(numero_secreto - chute)
+            pontos_perdidos = abs(numero - chute)
             pontos = pontos - pontos_perdidos
 
+def mensagem_vitoria():
+    print("\nParabéns, você ganhou!\n")
+    print("       ___________      ")
+    print("      '._==_==_=_.'     ")
+    print("      .-\\:      /-.    ")
+    print("     | (|:.     |) |    ")
+    print("      '-|:.     |-'     ")
+    print("        \\::.    /      ")
+    print("         '::. .'        ")
+    print("           ) (          ")
+    print("         _.' '._        ")
+    print("        '-------'       ")
+
+def mensagem_derrota(numero_secreto):
+    print("\nPuxa, você foi enforcado!\n")
+    print(f"O numero era {numero_secreto}\n")
+    print("    _______________         ")
+    print("   /               \       ")
+    print("  /                 \      ")
+    print("//                   \/\  ")
+    print("\|   XXXX     XXXX   | /   ")
+    print(" |   XXXX     XXXX   |/     ")
+    print(" |   XXX       XXX   |      ")
+    print(" |                   |      ")
+    print(" \__      XXX      __/     ")
+    print("   |\     XXX     /|       ")
+    print("   | |           | |        ")
+    print("   | I I I I I I I |        ")
+    print("   |  I I I I I I  |        ")
+    print("   \_             _/       ")
+    print("     \_         _/         ")
+    print("       \_______/           ")
+
+def mensagem_fim_de_jogo():
     print("\tFim do jogo!!!\n")
 
     print("*********************************")
