@@ -38,13 +38,7 @@ def jogar():
     else:
         mensagem_derrota(palavra_secreta)
         
-    print("\nFim do jogo!!!")
-
-    print("*********************************")
-    print("Obrigado por jogar!")
-    print("*********************************")
-
-
+    mensagem_fim_de_jogo()
 
 def desenha_forca(erros):
     print("  _______     ")
@@ -162,6 +156,13 @@ def mensagem_boas_vindas():
     print("\n*********************************")
     print("***Bem vindo ao jogo de Forca!***")
     print("*********************************\n")
+
+def mensagem_fim_de_jogo():
+    print("\nFim do jogo!!!")
+
+    print("*********************************")
+    print("Obrigado por jogar!")
+    print("*********************************")
 
 if (__name__ == "__main__"):
     jogar()
