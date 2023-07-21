@@ -17,15 +17,19 @@ def jogar():
 def mensagem_boas_vindas():
     welcome = ("Bem vindo ao jogo de adivinhação!")
 
+    # print("\n*********************************")
+    # print("Bem vindo ao jogo de adivinhação!")
+    # print("*********************************\n")  
+
     return welcome  
 
 def numero_secreto():
     numero_secreto = random.randrange(1,101)    #variavel que irá receber um numero "aleatório" que o usuario terá q adivinhar
     return numero_secreto
 
-def selecao_nivel():
-    print("(1) Fácil (2) Médio (3) Difícil")
-    nivel = int(input("\tDefina o nível: "))  #variavel que irá receber o nivel
+def selecao_nivel(nivel= int):
+    # print("(1) Fácil (2) Médio (3) Difícil")
+    # nivel = int(input("\tDefina o nível: "))  #variavel que irá receber o nivel
 
     if (nivel == 1):    #Se o nivel for igual a 1 o jogador terá 20 tentativas
         total_de_tentativas = 20
