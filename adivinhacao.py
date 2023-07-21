@@ -15,9 +15,9 @@ def jogar():
     mensagem_fim_de_jogo()
 
 def mensagem_boas_vindas():
-    print("\n*********************************")
-    print("Bem vindo ao jogo de adivinhação!")
-    print("*********************************\n")   
+    welcome = ("Bem vindo ao jogo de adivinhação!")
+
+    return welcome  
 
 def numero_secreto():
     numero_secreto = random.randrange(1,101)    #variavel que irá receber um numero "aleatório" que o usuario terá q adivinhar
